@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System</title>
+    <style>
+body { margin: 0; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; font-family: sans-serif; background-color: #000000;
+ background-image: radial-gradient(circle at 20% 30%, #020a28 0%, #000 40%), radial-gradient(circle at 80% 70%, #040c31 0%, transparent 45%), radial-gradient(circle at 50% 50%, #021c35 0%, transparent 60%), radial-gradient(circle at 10% 80%, #000a30 0%, transparent 50%), radial-gradient(circle at 90% 20%, #060c24 0%, transparent 50%); background-size: 200% 200%; animation: spaceGlow 25s ease-in-out infinite alternate; perspective: 1000px; }
+@keyframes spaceGlow { 0% { background-position: 0% 0%; } 50% { background-position: 100% 100%; } 100% { background-position: 0% 100%; } }
+body::before { content: ""; position: absolute; width: 2px; height: 2px; border-radius: 50%; background: #ffffff;
+    box-shadow: 
+        10vw 20vh 1px 1px rgba(255, 255, 255, 0.8),
+        25vw 80vh 0px 1px rgba(255, 255, 255, 0.4),
+        35vw 30vh 1px 0px rgba(255, 255, 255, 0.9),
+        45vw 90vh 0px 1px rgba(255, 255, 255, 0.3),
+        60vw 15vh 1px 1px rgba(255, 255, 255, 0.7),
+        70vw 65vh 0px 0px rgba(255, 255, 255, 0.5),
+        85vw 40vh 1px 1px rgba(255, 255, 255, 0.8),
+        90vw 85vh 0px 1px rgba(255, 255, 255, 0.4),
+        15vw 50vh 1px 0px rgba(255, 255, 255, 0.6),
+        50vw 50vh 0px 1px rgba(255, 255, 255, 0.5);
+    animation: starTwinkle 4s ease-in-out infinite alternate;
+}
+@keyframes starTwinkle { 0% { opacity: 0.3; transform: scale(0.8); } 100% { opacity: 1; transform: scale(1.2); } }
+.container { font-size: 10px; width: 95em; height: 95em; position: relative; }
+.sun { position: absolute; top: 43.5em; left: 43.5em; width: 8em; height: 8em; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #ffffff 0%, #ffea00 20%, #ff5500 50%, #cc0000 80%, #4a0000 100%); box-shadow: 0 0 1.5em #ffaa00, 0 0 4em #ff3300, 0 0 8em rgba(255, 60, 0, 0.8), 0 0 14em rgba(255, 0, 0, 0.4); z-index: 2; animation: sunPulse 3s ease-in-out infinite alternate; }
+.sun::before { content: ""; position: absolute; top: -15%; left: -15%; width: 130%; height: 130%; border-radius: 50%; background: conic-gradient(from 0deg, rgba(255, 200, 0, 0.8), rgba(255, 50, 0, 0.9), rgba(255, 150, 0, 0.4), rgba(200, 0, 0, 0.9), rgba(255, 200, 0, 0.8)); filter: url(#sun-fire) blur(4px); mix-blend-mode: screen; animation: rotateFire 10s linear infinite; pointer-events: none; }
+.sun::after { content: ""; position: absolute; top: -5%; left: -5%; width: 110%; height: 110%; border-radius: 50%; background: radial-gradient(circle, rgba(255,235,50,0.6) 0%, transparent 70%); filter: url(#sun-fire); animation: rotateFire 6s linear infinite reverse; pointer-events: none; }
+@keyframes sunPulse { 0% { transform: scale(1); box-shadow: 0 0 1.5em #ffaa00, 0 0 4em #ff3300, 0 0 8em rgba(255, 60, 0, 0.8); } 100% { transform: scale(1.04); box-shadow: 0 0 2.5em #ffcc00, 0 0 6em #ff5500, 0 0 12em rgba(255, 30, 0, 0.9); } }
+@keyframes rotateFire { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.orbit { position: absolute; border-style: solid; border-color: rgba(255, 255, 255, 0.12) transparent transparent transparent; border-width: 0.1em 0.1em 0 0; border-radius: 50%; }
+@keyframes orbit-prograde { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes orbit-retrograde { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+.mercury { top: 40.5em; left: 40.5em; width: 14em; height: 14em; animation: orbit-prograde 8.76s linear infinite; }
+.mercury-body { position: absolute; top: 1.5em; right: 1.5em; width: 0.8em; height: 0.8em; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #d9d9d9 0%, #8c8c8c 50%, #333333 100%); box-shadow: inset -1px -1px 2px rgba(0, 0, 0, 0.9); }
+.venus { top: 37em; left: 37em; width: 21em; height: 21em; animation: orbit-retrograde 22.63s linear infinite; }
+.venus-body { position: absolute; top: 2.3em; right: 2.3em; width: 1.4em; height: 1.4em; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff0d4 0%, #e3bb76 50%, #614923 100%); box-shadow: 0 0 6px rgba(227, 187, 118, 0.3), inset -2px -2px 4px rgba(0, 0, 0, 0.8); }
+.earth { top: 32.5em; left: 32.5em; width: 30em; height: 30em; animation: orbit-prograde 36.5s linear infinite; }
+.earth-body { position: absolute; top: 3.5em; right: 3.5em; width: 1.6em; height: 1.6em; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #85b3ff 0%, #3a7bd5 45%, #153c70 75%, #051020 100%); box-shadow: 0 0 8px rgba(100, 160, 255, 0.5), inset -3px -3px 5px rgba(0, 0, 0, 0.85); }
+.moon-orbit { position: absolute; top: 2.3em; right: 2.3em; width: 4em; height: 4em; animation: orbit-prograde 2.73s linear infinite; }
+.moon-body { position: absolute; top: 0.2em; right: 0.2em; width: 0.5em; height: 0.5em; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #ffffff 0%, #cccccc 50%, #444444 100%); }
+.mars { top: 28.5em; left: 28.5em; width: 38em; height: 38em; animation: orbit-prograde 68.62s linear infinite; }
+.mars-body { position: absolute; top: 4.7em; right: 4.7em; width: 1.1em; height: 1.1em; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #f08960 0%, #c1440e 55%, #421200 100%); box-shadow: 0 0 4px rgba(193, 68, 14, 0.3), inset -2px -2px 3px rgba(0, 0, 0, 0.85); }
+.asteroid-belt-container { position: absolute; top: 25.5em; left: 25.5em; width: 44em; height: 44em; border-radius: 50%; animation: orbit-prograde 180s linear infinite; }
+.asteroid { position: absolute; background: radial-gradient(circle at 30% 30%, #a89f91 0%, #524b42 60%, #1f1c18 100%); box-shadow: inset -1px -1px 2px rgba(0,0,0,0.8); }
+.jupiter { top: 23.5em; left: 23.5em; width: 48em; height: 48em; animation: orbit-prograde 432.89s linear infinite; }
+.jupiter-body { position: absolute; top: 6em; right: 6em; width: 3.4em; height: 3.4em; border-radius: 50%; background: radial-gradient(circle at 30% 30%, transparent 30%, rgba(0, 0, 0, 0.85) 100%), repeating-linear-gradient(180deg, #704923 0%, #704923 8%, #b07f35 8%, #b07f35 20%, #d1a96e 20%, #d1a96e 30%, #8c5e2b 30%, #8c5e2b 45%, #cfa163 45%, #cfa163 65%, #a8723a 65%, #a8723a 80%, #523315 80%, #523315 100%); box-shadow: inset -6px -6px 10px rgba(0, 0, 0, 0.9); }
+.jupiter-ring { position: absolute; top: 6.95em; right: 5em; width: 5.4em; height: 1.5em; border: 0.12em solid rgba(180, 130, 90, 0.25); border-radius: 50%; transform: rotate(-15deg); pointer-events: none; }
+.jupiter-halo { position: absolute; top: 7.2em; right: 5.5em; width: 4.4em; height: 1em; border: 0.15em solid rgba(160, 110, 70, 0.15); border-radius: 50%; transform: rotate(-15deg); pointer-events: none; }
+.saturn { top: 18.5em; left: 18.5em; width: 58em; height: 58em; animation: orbit-prograde 1075.29s linear infinite; }
+.saturn-body { position: absolute; top: 7.5em; right: 7.5em; width: 2.6em; height: 2.6em; border-radius: 50%; background: radial-gradient(circle at 30% 30%, transparent 20%, rgba(0, 0, 0, 0.85) 100%), linear-gradient(180deg, #f5e3b3 0%, #e2bf7d 40%, #c29d5b 70%, #876832 100%); box-shadow: inset -5px -5px 8px rgba(0, 0, 0, 0.85); }
+.saturn-ring-outer { position: absolute; top: 8em; right: 5.8em; width: 6em; height: 1.6em; border: 0.25em solid rgba(226, 191, 125, 0.75); border-radius: 50%; transform: rotate(-25deg); box-shadow: 0 0 0 0.08em rgba(10, 10, 10, 0.85); pointer-events: none; }
+.saturn-ring-inner { position: absolute; top: 8.3em; right: 6.4em; width: 4.8em; height: 1em; border: 0.18em solid rgba(175, 145, 95, 0.45); border-radius: 50%; transform: rotate(-25deg); pointer-events: none; }
+.uranus { top: 13.5em; left: 13.5em; width: 68em; height: 68em; animation: orbit-retrograde 3066.36s linear infinite; }
+.uranus-body { position: absolute; top: 9.2em; right: 9.2em; width: 2em; height: 2em; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #bce6eb 0%, #7bbbc3 50%, #2f5f66 100%); box-shadow: 0 0 8px rgba(123, 187, 195, 0.35), inset -4px -4px 6px rgba(0, 0, 0, 0.85); }
+.uranus-ring-outer { position: absolute; top: 8.3em; right: 9.6em; width: 1.2em; height: 3.8em; border: 0.1em solid rgba(140, 180, 195, 0.4); border-radius: 50%; transform: rotate(-85deg); pointer-events: none; }
+.uranus-ring-inner { position: absolute; top: 8.6em; right: 9.85em; width: 0.7em; height: 3.2em; border: 0.08em solid rgba(100, 150, 165, 0.25); border-radius: 50%; transform: rotate(-85deg); pointer-events: none; }
+.neptune { top: 8.5em; left: 8.5em; width: 78em; height: 78em; animation: orbit-prograde 6014.83s linear infinite; }
+.neptune-body { position: absolute; top: 10.6em; right: 10.6em; width: 1.9em; height: 1.9em; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #5882e6 0%, #274687 50%, #0d1a38 100%); box-shadow: 0 0 8px rgba(39, 70, 135, 0.4), inset -4px -4px 6px rgba(0, 0, 0, 0.85); }
+.neptune-ring { position: absolute; top: 10.4em; right: 9.8em; width: 3.5em; height: 2.3em; border-style: solid; border-width: 0.09em; border-color: rgba(90, 140, 220, 0.45) rgba(60, 100, 180, 0.15) rgba(60, 100, 180, 0.1) rgba(90, 140, 220, 0.3); border-radius: 50%; transform: rotate(30deg); pointer-events: none; }
+.kuiper-belt-group { position: absolute; top: 4.5em; left: 4.5em; width: 86em; height: 86em; border-radius: 50%; }
+.kuiper-layer-1 { border-width: 1.1em; border-color: rgba(121, 145, 161, 0.35); border-radius: 49% 51% 52% 48% / 51% 48% 52% 49%; transform: scale(0.97) rotate(-10deg); animation: orbit-prograde 600s linear infinite; }
+.kuiper-layer-2 { border-width: 1.4em; border-color: rgba(100, 125, 145, 0.25); border-radius: 53% 47% 48% 52% / 47% 53% 47% 53%; transform: scale(1.03) rotate(40deg); animation: orbit-prograde 950s linear infinite; }
+.pluto { top: 4em; left: 4em; width: 87em; height: 87em; animation: orbit-prograde 9049.81s linear infinite; }
+.pluto-body { position: absolute; top: 12.1em; right: 12.1em; width: 0.6em; height: 0.6em; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #d1c2b2 0%, #968674 50%, #3a3229 100%); box-shadow: inset -1px -1px 2px rgba(0, 0, 0, 0.9); }
+.xena-container { position: absolute; top: 0; left: 0; width: 95em; height: 95em; transform: rotate(-44deg); }
+.xena { top: 0; left: 0; width: 95em; height: 95em; animation: orbit-prograde 20367s linear infinite; }
+.xena-body { position: absolute; top: 13.2em; right: 13.2em; width: 0.7em; height: 0.7em; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #ffffff 0%, #d8d8d8 50%, #4a4a4a 100%); box-shadow: inset -1px -1px 2px rgba(0, 0, 0, 0.9); }
+    </style>
+</head>
+<body>
+<svg style="position: absolute; width: 0; height: 0;" aria-hidden="true">
+  <filter id="sun-fire">
+    <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="4" result="noise">
+      <animate attributeName="baseFrequency" dur="12s" values="0.02;0.05;0.02" repeatCount="indefinite" />
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="18" xChannelSelector="R" yChannelSelector="G" />
+  </filter>
+</svg>
+    <div class="container">
+        <div class="sun"></div>
+        <div class="orbit mercury"><div class="mercury-body"></div></div>
+        <div class="orbit venus"><div class="venus-body"></div></div>
+        <div class="orbit earth">
+            <div class="earth-body"></div>
+            <div class="orbit moon-orbit"><div class="moon-body"></div></div>
+        </div>
+        <div class="orbit mars"><div class="mars-body"></div></div>
+        <div class="asteroid-belt-container" id="asteroidBelt"></div>
+        <div class="orbit jupiter">
+            <div class="jupiter-halo"></div>
+            <div class="jupiter-ring"></div>
+            <div class="jupiter-body"></div>
+        </div>
+        <div class="orbit saturn">
+            <div class="saturn-ring-outer"></div>
+            <div class="saturn-ring-inner"></div>
+            <div class="saturn-body"></div>
+        </div>
+        <div class="orbit uranus">
+            <div class="uranus-ring-outer"></div>
+            <div class="uranus-ring-inner"></div>
+            <div class="uranus-body"></div>
+        </div>
+        <div class="orbit neptune">
+            <div class="neptune-ring"></div>
+            <div class="neptune-body"></div>
+        </div>
+        <div class="kuiper-belt-group">
+            <div class="belt-layer kuiper-layer-1"></div>
+            <div class="belt-layer kuiper-layer-2"></div>
+        </div>
+        <div class="orbit pluto"><div class="pluto-body"></div></div>
+        <div class="xena-container">
+            <div class="orbit xena"><div class="xena-body"></div></div>
+        </div>
+    </div>
+    <script>
+        (function generateAsteroids() {
+            const container = document.getElementById('asteroidBelt');
+            const totalAsteroids = 220;
+            const center = 22;
+            const minRadius = 19.5;
+            const maxRadius = 22.5;
+
+            for (let i = 0; i < totalAsteroids; i++) {
+                const asteroid = document.createElement('div');
+                asteroid.className = 'asteroid';
+                
+                const angle = Math.random() * Math.PI * 2;
+                const radius = minRadius + Math.random() * (maxRadius - minRadius);
+                
+                const x = center + radius * Math.cos(angle);
+                const y = center + radius * Math.sin(angle);
+                
+                const width = 0.2 + Math.random() * 0.35;
+                const height = 0.2 + Math.random() * 0.35;
+                
+                const r1 = 30 + Math.random() * 40;
+                const r2 = 30 + Math.random() * 40;
+                const r3 = 30 + Math.random() * 40;
+                const r4 = 30 + Math.random() * 40;
+                const r5 = 30 + Math.random() * 40;
+                const r6 = 30 + Math.random() * 40;
+                const r7 = 30 + Math.random() * 40;
+                const r8 = 30 + Math.random() * 40;
+                
+                asteroid.style.left = `${x}em`;
+                asteroid.style.top = `${y}em`;
+                asteroid.style.width = `${width}em`;
+                asteroid.style.height = `${height}em`;
+                asteroid.style.borderRadius = `${r1}% ${r2}% ${r3}% ${r4}% / ${r5}% ${r6}% ${r7}% ${r8}%`;
+                asteroid.style.transform = `rotate(${Math.random() * 360}deg)`;
+                
+                container.appendChild(asteroid);
+            }
+        })();
+    </script>
+</body>
+</html>
