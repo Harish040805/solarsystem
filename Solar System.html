@@ -70,6 +70,7 @@ body::before { content: ""; position: absolute; width: 2px; height: 2px; border-
     </style>
 </head>
 <body>
+<div id="time" style="background-color:#575757; color:#fff; width:200px; height: 20px; padding: 15px; align-items: center; justify-content: center; text-align: center; border: 3px solid #808080; border-radius: 10px; position: fixed; bottom: 30px; right: 30px;"></div>
 <svg style="position: absolute; width: 0; height: 0;" aria-hidden="true">
   <filter id="sun-fire">
     <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="4" result="noise">
@@ -156,6 +157,18 @@ body::before { content: ""; position: absolute; width: 2px; height: 2px; border-
                 container.appendChild(asteroid);
             }
         })();
+        
+        function updateTime() {
+            const date = new Date();
+            const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+            const time = date.toLocaleTimeString();
+            const day = date.toLocaleDateString(undefined, options);
+            document.getElementById('time').innerHTML =
+                `| ${day} | ${time} |`;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
     </script>
 </body>
 </html>
