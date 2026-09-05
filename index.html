@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solar System</title>
+    <link rel="icon" type="image/jpeg" href="solarsystem.jpg">
     <style>
 body { margin: 0; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; font-family: sans-serif; background-color: #000000;
  background-image: radial-gradient(circle at 20% 30%, #020a28 0%, #000 40%), radial-gradient(circle at 80% 70%, #040c31 0%, transparent 45%), radial-gradient(circle at 50% 50%, #021c35 0%, transparent 60%), radial-gradient(circle at 10% 80%, #000a30 0%, transparent 50%), radial-gradient(circle at 90% 20%, #060c24 0%, transparent 50%); background-size: 200% 200%; animation: spaceGlow 25s ease-in-out infinite alternate; perspective: 1000px; }
@@ -81,40 +82,44 @@ body::before { content: ""; position: absolute; width: 2px; height: 2px; border-
 </svg>
     <div class="container">
         <div class="sun" title="Sun"></div>
-        <div class="orbit mercury"><div class="mercury-body" title="Mercury"></div></div>
-        <div class="orbit venus"><div class="venus-body" title="Venus"></div></div>
-        <div class="orbit earth">
+        <div class="orbit mercury" title="Mercury"><div class="mercury-body" title="Mercury"></div></div>
+        <div class="orbit venus" title="Venus"><div class="venus-body" title="Venus"></div></div>
+        <div class="orbit earth" title="Earth">
             <div class="earth-body" title="Earth"></div>
-            <div class="orbit moon-orbit"><div class="moon-body" title="Moon"></div></div>
+            <div class="orbit moon-orbit" title="Moon"><div class="moon-body" title="Moon"></div></div>
         </div>
-        <div class="orbit mars"><div class="mars-body" title="Mars"></div></div>
+        <div class="orbit mars" title="Mars"><div class="mars-body" title="Mars"></div></div>
         <div class="asteroid-belt-container" id="asteroidBelt" title="Asteroid Belt"></div>
-        <div class="orbit jupiter">
-            <div class="jupiter-halo"></div>
-            <div class="jupiter-ring"></div>
+        <div class="orbit jupiter" title="Jupiter">
+            <div class="jupiter-halo" title="Jupiter"></div>
+            <div class="jupiter-ring" title="Jupiter"></div>
             <div class="jupiter-body" title="Jupiter"></div>
         </div>
-        <div class="orbit saturn">
-            <div class="saturn-ring-outer"></div>
-            <div class="saturn-ring-inner"></div>
+        <div class="orbit saturn" title="Saturn">
+            <div class="saturn-ring-outer" title="Saturn"></div>
+            <div class="saturn-ring-inner" title="Saturn"></div>
             <div class="saturn-body" title="Saturn"></div>
         </div>
-        <div class="orbit uranus">
-            <div class="uranus-ring-outer"></div>
-            <div class="uranus-ring-inner"></div>
+        <div class="orbit uranus" title="Uranus">
+            <div class="uranus-ring-outer" title="Uranus"></div>
+            <div class="uranus-ring-inner" title="Uranus"></div>
             <div class="uranus-body" title="Uranus"></div>
         </div>
-        <div class="orbit neptune">
-            <div class="neptune-ring"></div>
+        <div class="orbit neptune" title="Neptune">
+            <div class="neptune-ring" title="Neptune"></div>
             <div class="neptune-body" title="Neptune"></div>
         </div>
-        <div class="kuiper-belt-group">
+        <div class="kuiper-belt-group" title="Kuiper Belt">
             <div class="belt-layer kuiper-layer-1" title="Inner Kuiper Belt"></div>
             <div class="belt-layer kuiper-layer-2" title="Outer Kuiper Belt"></div>
         </div>
-        <div class="orbit pluto"><div class="pluto-body" title="Pluto"></div></div>
-        <div class="xena-container">
-            <div class="orbit xena"><div class="xena-body" title="Xena"></div></div>
+        <div class="orbit pluto" title="Pluto">
+            <div class="pluto-body" title="Pluto"></div>
+        </div>
+        <div class="xena-container" title="Xena">
+            <div class="orbit xena" title="Xena">
+                <div class="xena-body" title="Xena"></div>
+            </div>
         </div>
     </div>
     <script>
